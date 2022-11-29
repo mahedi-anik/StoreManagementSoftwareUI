@@ -36,35 +36,66 @@ ngOnInit(): void {
     this.getAllSuppliers()
 }
 
+ngDoCheck(): void {
+  this.Id=this.product.ProductCategoryId;
+  this.Id=this.product.ShelfId;
+  this.Id=this.product.SupplierId;
+}
 
+getAllShelves()
+  {
+    this.service.getAllShelfList().subscribe((data:any)=>{
+      this.listShelves = data;
+    });
+  }
+  getProductCategories()
+  {
+    this.service.getAllProductCategoryList().subscribe((data:any)=>{
+      this.listProductCategories = data;
+    });
+  }
+  getAllSuppliers()
+  {
+    this.service.getAllSupplierList().subscribe((data:any)=>{
+      this.listSuppliers = data;
+    });
+  }
 
+  selectChangeHandlerProdCat(event:any)
+  {
+    this.product.ProductCategoryId=event.target.value;
+  }
 
-
-
-
-
-
-
-
-addShelf(){
+addProduct(){
   var val ={Id:this.Id,
-    ShelfName:this.ShelfName,
-    NumericNo:this.NumericNo,
-    ShelfDescription:this.ShelfDescription
+    ProductCategoryId:this.ProductCategoryId,
+    ShelfId:this.ShelfId,
+    ProductName:this.ProductName,
+    BatchNo:this.BatchNo,
+    SupplierId:this.SupplierId,
+    BuyingPrice:this.BuyingPrice,
+    SellingPrice:this.SellingPrice,
+    ProductDescription:this.ShelfId,
+    EntryBy:this.EntryBy,
   };
-  this.service.addNewShelf(val).subscribe((data:any)=>{
+  this.service.addNewProduct(val).subscribe((data:any)=>{
     window.location.reload();
   });
 }
 
-updateShelf(){
+updateProduct(){
   var val = {
-    Id:this.Id,
-    ShelfName:this.ShelfName,
-    NumericNo:this.NumericNo,
-    ShelfDescription:this.ShelfDescription
+    ProductCategoryId:this.ProductCategoryId,
+    ShelfId:this.ShelfId,
+    ProductName:this.ProductName,
+    BatchNo:this.BatchNo,
+    SupplierId:this.SupplierId,
+    BuyingPrice:this.BuyingPrice,
+    SellingPrice:this.SellingPrice,
+    ProductDescription:this.ShelfId,
+    EntryBy:this.EntryBy,
   };
-  this.service.updateShelf(this.Id,val).subscribe((data:any)=>{
+  this.service.updateProduct(this.Id,val).subscribe((data:any)=>{
     window.location.reload();
   });
 }

@@ -22,7 +22,7 @@
         <mat-form-field appearance="outline">
             <mat-label>Product Category</mat-label>
             <!-- <input type="text" matInput  placeholder="Numeric No." name="NumericNo" id ="NumericNo" [(ngModel)]="NumericNo" > -->
-            <mat-select (change)="selectChangeHandlerCus($event)"></mat-select>
+            <mat-select (change)="selectChangeHandlerProdCat($event)"></mat-select>
             <mat-option 
                 *ngFor="let customer of listShelves" value="{{shelf.Id}}" 
                 [selected]="shelf.Id === Id">{{shelf.ShelfName}}
