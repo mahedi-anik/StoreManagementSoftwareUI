@@ -17,44 +17,59 @@
                             <hr class="bg-secondary border-2 border-top border-secondary">
                             <div class="d-flex flex-wrap">
                               <mat-form-field appearance="outline">
-                                <mat-label>Search</mat-label>
-                                <input matInput (keyup)="applyFilter($event)"  placeholder="Search Shelf..." #input>
+                                <mat-label>Search</mat-label>&nbsp;
+                                <input matInput (keyup)="applyFilter($event)"  placeholder="Search Product..." #input>
                               </mat-form-field>&nbsp;
-                            <button type="button" mat-mini-fab color="accent" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addShelfClick()" data-backdrop="static" data-keyboard="false">
+                            <button type="button" mat-mini-fab color="accent" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addProductClick()" data-backdrop="static" data-keyboard="false">
                               +ADD
                             </button>
                             </div>
                             <div class="mat-elevation-z8">
-                              <table mat-table [dataSource]="shelfdataSource" matSort>
+                              <table mat-table [dataSource]="ProductdataSource" matSort>
                                   <!-- Id Column -->
                                   <ng-container matColumnDef="Id">
                                       <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
                                       <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
                                   </ng-container>
                                   <!-- Shelf Name Column -->
-                                  <ng-container matColumnDef="ShelfName">
+                                  <ng-container matColumnDef="ProductName">
                                       <th mat-header-cell *matHeaderCellDef mat-sort-header> Shelf Name </th>
-                                      <td mat-cell *matCellDef="let element"> {{element.ShelfName}} </td>
+                                      <td mat-cell *matCellDef="let element"> {{element.ProductName}} </td>
                                   </ng-container>
                                   <!-- Numeric No Column -->
-                                  <ng-container matColumnDef="NumericNo">
+                                  <ng-container matColumnDef="ProductCategoryId">
                                       <th mat-header-cell *matHeaderCellDef mat-sort-header> Numeric No. </th>
-                                      <td mat-cell *matCellDef="let element"> {{element.NumericNo}} </td>
+                                      <td mat-cell *matCellDef="let element"> {{element.ProductCategoryId}} </td>
                                   </ng-container>
                                   <!-- Shelf Description Column -->
-                                  <ng-container matColumnDef="ShelfDescription">
+                                  <ng-container matColumnDef="ShelfId">
                                       <th mat-header-cell *matHeaderCellDef mat-sort-header> Shelf Description </th>
-                                      <td mat-cell *matCellDef="let element"> {{element.ShelfDescription}} </td>
+                                      <td mat-cell *matCellDef="let element"> {{element.ShelfId}} </td>
                                   </ng-container>
+                                  <!-- Shelf Description Column -->
+                                  <ng-container matColumnDef="SupplierId">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Shelf Description </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.SupplierId}} </td>
+                                </ng-container>
+                                <!-- Shelf Description Column -->
+                                <ng-container matColumnDef="BuyingPrice">
+                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Shelf Description </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.BuyingPrice}} </td>
+                              </ng-container>
+                              <!-- Shelf Description Column -->
+                              <ng-container matColumnDef="SellingPrice">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Shelf Description </th>
+                                <td mat-cell *matCellDef="let element"> {{element.SellingPrice}} </td>
+                            </ng-container>
                                   <!-- Actions Column -->
                                   <ng-container matColumnDef="Actions">
                                       <th mat-header-cell *matHeaderCellDef> Actions </th>
                                       <td mat-cell *matCellDef="let element">
                                         <button type="button" mat-icon-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                        (click)="editShelf(element)" data-backdrop="static" data-keyboard="false">
+                                        (click)="editProduct(element)" data-backdrop="static" data-keyboard="false">
                                         <fa-icon [icon]="faPenToSquare"></fa-icon>
                                       </button>
-                                      <button type="button" mat-icon-button color="warn" (click)="deleteShelf(element.Id)">
+                                      <button type="button" mat-icon-button color="warn" (click)="deleteProduct(element.Id)">
                                         <fa-icon [icon]="faTrashCan"></fa-icon>
                                       </button>
                                       </td>
@@ -93,7 +108,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <app-add-edit-shelf [shelf]="shelf" *ngIf="ActivateAddEditShelfComp"></app-add-edit-shelf>
+                <app-add-edit-shelf [product]="product" *ngIf="ActivateAddEditProductComp"></app-add-edit-shelf>
             </div>
   
         </div>

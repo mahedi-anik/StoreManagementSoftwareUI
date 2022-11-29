@@ -1,1 +1,42 @@
-<p>add-edit-product works!</p>
+<form autocomplete="off" class="row g-3">
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input type="text" matInput  placeholder="Product Name" name="ProductName" id ="ProductName" [(ngModel)]="ProductName" 
+            required minlength="3" maxlength="50" #name="ngModel" >
+        </mat-form-field>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+
+            <div *ngIf="name.errors?.['required']">
+                Product Name is required.
+            </div>
+            <div *ngIf="name.errors?.['minlength']">
+                Product Name must be at least 3 characters long.
+            </div>
+            <div *ngIf="name.errors?.['maxlength']">
+                Product Name must be at least 200 characters long.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Category</mat-label>
+            <!-- <input type="text" matInput  placeholder="Numeric No." name="NumericNo" id ="NumericNo" [(ngModel)]="NumericNo" > -->
+            <mat-select (change)="selectChangeHandlerCus($event)"></mat-select>
+            <mat-option 
+                *ngFor="let customer of listShelves" value="{{shelf.Id}}" 
+                [selected]="shelf.Id === Id">{{shelf.ShelfName}}
+            </mat-option>
+        </mat-form-field>   
+    </div>
+    <div class="col-md-12">
+        <mat-form-field appearance="outline">
+            <mat-label>Shelf Description</mat-label>
+            <!-- <input type="text" matInput  placeholder="Shelf Description" name="ShelfDescription" id ="ShelfDescription" [(ngModel)]="ShelfDescription" > -->
+        </mat-form-field>   
+    </div>
+    <div class="col-md-12">
+        <button (click)="addProduct()" *ngIf="product.Id==0" class="btn btn-primary">Add Shelf</button>
+        <button (click)="updateProduct()" *ngIf="product.Id!=0" class="btn btn-primary">Edit Shelf</button>
+    </div>
+</form>
