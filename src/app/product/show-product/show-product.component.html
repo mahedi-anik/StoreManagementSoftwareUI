@@ -17,7 +17,7 @@
                             <hr class="bg-secondary border-2 border-top border-secondary">
                             <div class="d-flex flex-wrap">
                               <mat-form-field appearance="outline">
-                                <mat-label>Search</mat-label>&nbsp;
+                                <mat-label>Search</mat-label>
                                 <input matInput (keyup)="applyFilter($event)"  placeholder="Search Product..." #input>
                               </mat-form-field>&nbsp;
                             <button type="button" mat-mini-fab color="accent" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addProductClick()" data-backdrop="static" data-keyboard="false">
@@ -109,8 +109,7 @@
             </div>
             <div class="modal-body">
                 <app-add-edit-product [product]="product" *ngIf="ActivateAddEditProductComp"></app-add-edit-product>
-            </div>
-  
+            </div> 
         </div>
     </div>
   </div>

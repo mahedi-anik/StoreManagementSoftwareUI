@@ -21,13 +21,15 @@ export class ShowProductComponent implements OnInit {
   ProductdataSource;
   ModelTitle!:string;
   product:any;
-  ActivateAddEditProductComp:Boolean=false;
-  displayedColumns:string[]=['ProductId','ProductName','ProductCategoryId','ShelfId','SupplierId','BuyingPrice','SellingPrice','Actions'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  ActivateAddEditProductComp:Boolean = false;
   ShelfList:any=[];
   ProductCategoryList:any=[];
   SupplierList:any=[];
+
+
+  displayedColumns:string[]=['ProductId','ProductName','ProductCategoryId','ShelfId','SupplierId','BuyingPrice','SellingPrice','Actions'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
 
 
