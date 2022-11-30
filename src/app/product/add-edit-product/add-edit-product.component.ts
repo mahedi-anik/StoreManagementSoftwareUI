@@ -14,7 +14,7 @@ import { SharedService } from 'src/app/shared.service';
 export class AddEditProductComponent implements OnInit, DoCheck  {
 
 @Input() product:any;
-Id!:number;
+ProductId!:number;
 ProductCategoryId:any;
 ShelfId!:any;
 ProductName!:any;
@@ -25,9 +25,9 @@ SellingPrice!:string;
 ProductDescription!:string;
 EntryDate!:string;
 EntryBy!:string;
-listShelves!:any;
-listProductCategories!:any;
-listSuppliers!:any;
+ShelfList!:any;
+ProductCategoryList!:any;
+SupplierList!:any;
 constructor(private service:SharedService,private datePipe: DatePipe) { }
 
 ngOnInit(): void {
@@ -37,27 +37,27 @@ ngOnInit(): void {
 }
 
 ngDoCheck(): void {
-  this.Id=this.product.ProductCategoryId;
-  this.Id=this.product.ShelfId;
-  this.Id=this.product.SupplierId;
+  this.ProductCategoryId=this.product.ProductCategoryId;
+  this.ShelfId=this.product.ShelfId;
+  this.SupplierId=this.product.SupplierId;
 }
 
 getAllShelves()
   {
     this.service.getAllShelfList().subscribe((data:any)=>{
-      this.listShelves = data;
+      this.ShelfList = data;
     });
   }
   getProductCategories()
   {
     this.service.getAllProductCategoryList().subscribe((data:any)=>{
-      this.listProductCategories = data;
+      this.ProductCategoryList = data;
     });
   }
   getAllSuppliers()
   {
     this.service.getAllSupplierList().subscribe((data:any)=>{
-      this.listSuppliers = data;
+      this.SupplierList = data;
     });
   }
 
@@ -65,9 +65,16 @@ getAllShelves()
   {
     this.product.ProductCategoryId=event.target.value;
   }
+  selectChangeHandlerShelf(event:any)
+  {
+    this.product.ShelfId=event.target.value;
+  }
+
+
 
 addProduct(){
-  var val ={Id:this.Id,
+  var val ={
+    ProductId:this.ProductId,
     ProductCategoryId:this.ProductCategoryId,
     ShelfId:this.ShelfId,
     ProductName:this.ProductName,
@@ -95,7 +102,7 @@ updateProduct(){
     ProductDescription:this.ShelfId,
     EntryBy:this.EntryBy,
   };
-  this.service.updateProduct(this.Id,val).subscribe((data:any)=>{
+  this.service.updateProduct(this.ProductId,val).subscribe((data:any)=>{
     window.location.reload();
   });
 }

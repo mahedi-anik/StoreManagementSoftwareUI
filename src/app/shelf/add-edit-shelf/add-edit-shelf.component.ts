@@ -11,12 +11,12 @@ export class AddEditShelfComponent implements OnInit {
   constructor(private service: SharedService) { }
 
   @Input() shelf:any;
-  Id:string;
+  ShelfId:string;
   ShelfName:string;
   NumericNo:string;
   ShelfDescription:string;
   ShelfList:any=[];
-  //index:number = 0;
+  index:number = 0;
 
   ngOnInit(): void {
     this.LoadShelfList();
@@ -25,7 +25,7 @@ export class AddEditShelfComponent implements OnInit {
     this.service.getAllShelfList().subscribe((data:any)=>{
       this.ShelfList=data;
 
-      this.Id=this.shelf.Id,
+      this.ShelfId=this.shelf.ShelfId,
       this.ShelfName=this.shelf.ShelfName,
       this.NumericNo=this.shelf.NumericNo,
       this.ShelfDescription=this.shelf.ShelfDescription;
@@ -33,7 +33,7 @@ export class AddEditShelfComponent implements OnInit {
   }
 
   addShelf(){
-    var val ={Id:this.Id,
+    var val ={ShelfId:this.ShelfId,
       ShelfName:this.ShelfName,
       NumericNo:this.NumericNo,
       ShelfDescription:this.ShelfDescription
@@ -45,12 +45,12 @@ export class AddEditShelfComponent implements OnInit {
 
   updateShelf(){
     var val = {
-      Id:this.Id,
+      ShelfId:this.ShelfId,
       ShelfName:this.ShelfName,
       NumericNo:this.NumericNo,
       ShelfDescription:this.ShelfDescription
     };
-    this.service.updateShelf(this.Id,val).subscribe((data:any)=>{
+    this.service.updateShelf(this.ShelfId,val).subscribe((data:any)=>{
       window.location.reload();
     });
   }

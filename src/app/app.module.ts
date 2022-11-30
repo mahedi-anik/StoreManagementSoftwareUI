@@ -49,7 +49,8 @@ import { AddEditCustomerComponent } from './customer/add-edit-customer/add-edit-
 import { SupplierComponent } from './supplier/supplier.component';
 import { ShowSupplierComponent } from './supplier/show-supplier/show-supplier.component';
 import { AddEditSupplierComponent } from './supplier/add-edit-supplier/add-edit-supplier.component';
-
+import { DatePipe } from '@angular/common';
+import { SharedService } from './shared.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,7 +105,7 @@ import { AddEditSupplierComponent } from './supplier/add-edit-supplier/add-edit-
     FontAwesomeModule
 
   ],
-  providers: [],
+  providers: [SharedService,DatePipe],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

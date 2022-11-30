@@ -12,9 +12,9 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'shelf',component:ShelfComponent},
   {path:'customer',component:CustomerComponent},
+  {path:'product',component:ProductComponent},
   {path:'productCategory',component:ProductCategoryComponent},
-  {path:'supplier',component:SupplierComponent},
-  {path:'product',component:ProductComponent}
+  {path:'supplier',component:SupplierComponent}
 
 ];
 

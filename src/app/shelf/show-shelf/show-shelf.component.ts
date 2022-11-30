@@ -21,14 +21,13 @@ export class ShowShelfComponent implements OnInit {
   ModelTitle!:string;
   shelf:any;
   ActivateAddEditShelfComp:Boolean = false;
-  displayedColumns: string[] = ['Id', 'ShelfName', 'NumericNo','ShelfDescription','Actions'];
+  displayedColumns: string[] = ['ShelfId', 'ShelfName', 'NumericNo','ShelfDescription','Actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
     this.refreshShelfList();
   }
-
   refreshShelfList(){
     this.service.getAllShelfList().subscribe(data=>{
       this.ShelfList=data;
@@ -50,7 +49,7 @@ export class ShowShelfComponent implements OnInit {
   addShelfClick()
   {
     this.shelf ={
-      Id:0,
+      ShelfId:0,
       ShelfName:"",
       NumericNo:"",
       ShelfDescription:""

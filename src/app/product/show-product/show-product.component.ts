@@ -6,9 +6,6 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {faPenToSquare,faTrashCan} from '@fortawesome/free-solid-svg-icons'
 import { DatePipe } from '@angular/common';
-import { ShelfComponent } from 'src/app/shelf/shelf.component';
-import { ProductCategoryComponent } from 'src/app/product-category/product-category.component';
-import { SupplierComponent } from 'src/app/supplier/supplier.component';
 
 @Component({
   selector: 'app-show-product',
@@ -25,13 +22,12 @@ export class ShowProductComponent implements OnInit {
   ModelTitle!:string;
   product:any;
   ActivateAddEditProductComp:Boolean=false;
-  displayedColumns:string[]=['Id','ProductName','ProductCategoryId','ShelfId','SupplierId','BuyingPrice','SellingPrice','Actions'];
+  displayedColumns:string[]=['ProductId','ProductName','ProductCategoryId','ShelfId','SupplierId','BuyingPrice','SellingPrice','Actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  listShelves:Shelf[] = [];
-  listProductCategories:ProductCategory[] = [];
-  listSuppliers:Supplier[] = [];
-
+  ShelfList:any=[];
+  ProductCategoryList:any=[];
+  SupplierList:any=[];
 
 
 
@@ -54,19 +50,19 @@ export class ShowProductComponent implements OnInit {
   getAllShelves()
   {
     this.service.getAllShelfList().subscribe((data:any)=>{
-      this.listShelves = data;
+      this.ShelfList = data;
     });
   }
   getProductCategories()
   {
     this.service.getAllProductCategoryList().subscribe((data:any)=>{
-      this.listProductCategories = data;
+      this.ProductCategoryList = data;
     });
   }
   getAllSuppliers()
   {
     this.service.getAllSupplierList().subscribe((data:any)=>{
-      this.listSuppliers = data;
+      this.SupplierList = data;
     });
   }
 
@@ -82,12 +78,12 @@ export class ShowProductComponent implements OnInit {
   addProductClick()
   {
     this.product ={
-      Id:0,
-      ProductCategoryId:this.listProductCategories[0].Id,
-      ShelfId:this.listShelves[0].Id,
+      ProductId:0,
+      ProductCategoryId:this.ProductCategoryList[0].ProductCategoryId,
+      ShelfId:this.ShelfList[0].ShelfId,
       ProductName:"",
       BatchNo:"",
-      SupplierId:this.listSuppliers[0].Id,
+      SupplierId:this.SupplierList[0].SupplierId,
       BuyingPrice:"",
       SellingPrice:"",
       ProductDescription:"",
@@ -106,7 +102,7 @@ export class ShowProductComponent implements OnInit {
 
   editProduct(item:any){
     this.product=item;
-    this.ModelTitle="Edit Shelf Info!";
+    this.ModelTitle="Edit Product Info!";
     this.ActivateAddEditProductComp=true;
   }
 

@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-shelf',
   templateUrl: './shelf.component.html',
   styleUrls: ['./shelf.component.scss']
 })
-export class ShelfComponent {
+export class ShelfComponent implements OnInit {
+
+constructor(){}
+
+ngOnInit(): void {
+  
+}
 
 }

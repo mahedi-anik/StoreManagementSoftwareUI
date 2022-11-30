@@ -20,12 +20,12 @@
     </div>
     <div class="col-md-6">
         <mat-form-field appearance="outline">
-            <mat-label>Product Category</mat-label>
+            <mat-label>Shelf Name</mat-label>
             <!-- <input type="text" matInput  placeholder="Numeric No." name="NumericNo" id ="NumericNo" [(ngModel)]="NumericNo" > -->
-            <mat-select (change)="selectChangeHandlerProdCat($event)"></mat-select>
+            <mat-select (change)="selectChangeHandlerShelf($event)"></mat-select>
             <mat-option 
-                *ngFor="let customer of listShelves" value="{{shelf.Id}}" 
-                [selected]="shelf.Id === Id">{{shelf.ShelfName}}
+                *ngFor="let shelf of ShelfList" value="{{shelf.ShelfId}}" 
+                [selected]="shelf.ShelfId === ShelfId">{{shelf.ShelfName}}
             </mat-option>
         </mat-form-field>   
     </div>
@@ -36,7 +36,7 @@
         </mat-form-field>   
     </div>
     <div class="col-md-12">
-        <button (click)="addProduct()" *ngIf="product.Id==0" class="btn btn-primary">Add Shelf</button>
-        <button (click)="updateProduct()" *ngIf="product.Id!=0" class="btn btn-primary">Edit Shelf</button>
+        <button (click)="addProduct()" *ngIf="product.ProductId==0" class="btn btn-primary">Add Product</button>
+        <button (click)="updateProduct()" *ngIf="product.ProductId!=0" class="btn btn-primary">Edit Product</button>
     </div>
 </form>
