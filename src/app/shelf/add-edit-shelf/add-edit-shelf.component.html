@@ -1,4 +1,4 @@
-<form autocomplete="off" class="row g-3">
+<!-- <form autocomplete="off" class="row g-3">
     <div class="col-md-6">
         <mat-form-field appearance="outline">
             <mat-label>Shelf Name</mat-label>
@@ -34,4 +34,54 @@
         <button (click)="addShelf()" *ngIf="shelf.ShelfId==0" class="btn btn-primary">Add Shelf</button>
         <button (click)="updateShelf()" *ngIf="shelf.ShelfId!=0" class="btn btn-primary">Edit Shelf</button>
     </div>
-</form>
+</form> -->
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{ModelTitle}}</h4>
+            <form class="form-sample" autocomplete="off">
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Shelf Name</label>
+                        <div class="col-sm-9">
+                            <input type="text"  placeholder="Shelf Name" name="ShelfName" id ="ShelfName" [(ngModel)]="ShelfName" 
+                            required minlength="3" maxlength="200" #name="ngModel" class="form-control">
+                        </div>
+                      </div>
+                      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+
+                        <div *ngIf="name.errors?.['required']">
+                            Shelf Name is required.
+                        </div>
+                        <div *ngIf="name.errors?.['minlength']">
+                            Shelf Name must be at least 3 characters long.
+                        </div>
+                        <div *ngIf="name.errors?.['maxlength']">
+                            Shelf Name must be at least 200 characters long.
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Numeric No.</label>
+                        <div class="col-sm-9">
+                            <input type="text" matInput  placeholder="Numeric No." name="NumericNo" id ="NumericNo" [(ngModel)]="NumericNo" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Shelf Description</label>
+                          <div class="col-sm-9">
+                            <input type="text" matInput  placeholder="Shelf Description" name="ShelfDescription" id ="ShelfDescription" [(ngModel)]="ShelfDescription" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

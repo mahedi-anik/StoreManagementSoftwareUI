@@ -17,7 +17,7 @@ export class AddEditShelfComponent implements OnInit {
   ShelfDescription:string;
   ShelfList:any=[];
   index:number = 0;
-
+  ModelTitle!:string;
   ngOnInit(): void {
     this.LoadShelfList();
   }
@@ -38,6 +38,7 @@ export class AddEditShelfComponent implements OnInit {
       NumericNo:this.NumericNo,
       ShelfDescription:this.ShelfDescription
     };
+    this.ModelTitle="Add New Shelf";
     this.service.addNewShelf(val).subscribe((data:any)=>{
       window.location.reload();
     });
@@ -50,12 +51,18 @@ export class AddEditShelfComponent implements OnInit {
       NumericNo:this.NumericNo,
       ShelfDescription:this.ShelfDescription
     };
+    this.ModelTitle="Edit Shelf Info!";
     this.service.updateShelf(this.ShelfId,val).subscribe((data:any)=>{
       window.location.reload();
     });
   }
 
 
+  // closeClick()
+  // {
+  //   this.ActivateAddEditShelfComp=false;
+  //   this.refreshShelfList();
+  // }
 
 
 
