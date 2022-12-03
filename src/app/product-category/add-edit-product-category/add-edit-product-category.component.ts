@@ -1,6 +1,6 @@
 import { Component,OnInit,Input } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { MatDialogRef } from '@angular/material';
+// import { MatDialogRef } from '@angular/material';
 import { ProductCategoryComponent } from '../product-category.component';
 
 
@@ -10,7 +10,7 @@ import { ProductCategoryComponent } from '../product-category.component';
   styleUrls: ['./add-edit-product-category.component.scss']
 })
 export class AddEditProductCategoryComponent implements OnInit {
-constructor(private service: SharedService,public dialogRef: MatDialogRef<ProductCategoryComponent>){}
+constructor(private service: SharedService){}
   
   @Input() 
   productCategory:any;
@@ -38,7 +38,8 @@ constructor(private service: SharedService,public dialogRef: MatDialogRef<Produc
 
   onClose() {
     // this.service.form.reset();
-    this.dialogRef.close();
+    //this.dialogRef.close();
+    window.location.reload();
   }
 
 

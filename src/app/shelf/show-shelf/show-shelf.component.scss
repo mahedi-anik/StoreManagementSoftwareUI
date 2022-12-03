@@ -10,3 +10,23 @@ table {
   .modal-lg {
     width: 60%; 
  }
+ 
+.close:focus{
+
+      outline: 1px dotted #fff !important;
+}
+
+.modal-title{
+
+  color: #fff;
+}
+
+.modal-header{
+
+      background: #9C27B0;
+    color: #fff !important;
+}
+
+.fa-close{
+  color: #fff;
+}

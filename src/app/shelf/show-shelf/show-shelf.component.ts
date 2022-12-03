@@ -4,7 +4,7 @@ import {ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {faPenToSquare,faTrashCan} from '@fortawesome/free-solid-svg-icons'
+import {faPenToSquare,faTrashCan,faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-show-shelf',
@@ -16,6 +16,7 @@ export class ShowShelfComponent implements OnInit {
   constructor(private service:SharedService) { }
   faPenToSquare=faPenToSquare;
   faTrashCan=faTrashCan;
+  faCircleXmark=faCircleXmark;
   ShelfList:any=[];
   shelfdataSource;
   ModelTitle!:string;
@@ -27,6 +28,7 @@ export class ShowShelfComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshShelfList();
+    //this.reloadPage();
   }
   refreshShelfList(){
     this.service.getAllShelfList().subscribe(data=>{
@@ -34,7 +36,8 @@ export class ShowShelfComponent implements OnInit {
       this.shelfdataSource=new MatTableDataSource(this.ShelfList);
       this.shelfdataSource.paginator=this.paginator;
       this.shelfdataSource.sort=this.sort;
-    })
+      this.reloadPage();
+    });
   }
 
   applyFilter(event: Event){
@@ -57,11 +60,15 @@ export class ShowShelfComponent implements OnInit {
     this.ModelTitle="Add New Shelf";
     this.ActivateAddEditShelfComp=true;
   }
+  reloadPage(){
+    window.location.reload();
+  }
 
   closeClick()
   {
     this.ActivateAddEditShelfComp=false;
     this.refreshShelfList();
+    this.reloadPage();
   }
 
   editShelf(item:any){
@@ -77,6 +84,7 @@ export class ShowShelfComponent implements OnInit {
       
       this.service.deleteShelf(id).subscribe((data:any)=>{
         this.refreshShelfList();
+        this.reloadPage();
       });
     }
   }
