@@ -28,7 +28,6 @@ export class ShowShelfComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshShelfList();
-    //this.reloadPage();
   }
   refreshShelfList(){
     this.service.getAllShelfList().subscribe(data=>{
@@ -36,7 +35,6 @@ export class ShowShelfComponent implements OnInit {
       this.shelfdataSource=new MatTableDataSource(this.ShelfList);
       this.shelfdataSource.paginator=this.paginator;
       this.shelfdataSource.sort=this.sort;
-      this.reloadPage();
     });
   }
 
@@ -60,16 +58,6 @@ export class ShowShelfComponent implements OnInit {
     this.ModelTitle="Add New Shelf";
     this.ActivateAddEditShelfComp=true;
   }
-  reloadPage(){
-    window.location.reload();
-  }
-
-  closeClick()
-  {
-    this.ActivateAddEditShelfComp=false;
-    this.refreshShelfList();
-    this.reloadPage();
-  }
 
   editShelf(item:any){
     this.shelf=item;
@@ -84,7 +72,7 @@ export class ShowShelfComponent implements OnInit {
       
       this.service.deleteShelf(id).subscribe((data:any)=>{
         this.refreshShelfList();
-        this.reloadPage();
+        window.location.reload();
       });
     }
   }
