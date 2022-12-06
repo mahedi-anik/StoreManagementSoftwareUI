@@ -14,8 +14,8 @@ const routes: Routes = [
   {path:'',redirectTo:'/dashboard', pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent},
   {path:'shelf',
-  loadChildren: () => import('../app/shelf/shelf.module').then(x => x.ShelfModule)}
-  
+  loadChildren: () => import('../app/shelf/shelf.module').then(x => x.ShelfModule)},
+  // {path:'**',component:PageNotFoundComponent}
   // {path:'shelf',component:ShelfComponent},
   // {path:'customer',component:CustomerComponent},
   // {path:'product',component:ProductComponent},

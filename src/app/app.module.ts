@@ -1,4 +1,4 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA  } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA   } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -110,8 +110,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   providers: [SharedService,DatePipe],
   bootstrap: [AppComponent],
   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
+    NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA 
   ],
 })
 export class AppModule { }
