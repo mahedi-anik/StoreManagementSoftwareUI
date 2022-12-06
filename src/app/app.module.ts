@@ -1,4 +1,4 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,9 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenubarComponent } from './nav-menubar/nav-menubar.component';
 import { SidebarSkinsComponent } from './sidebar-skins/sidebar-skins.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ShelfComponent } from './shelf/shelf.component';
-import { ShowShelfComponent } from './shelf/show-shelf/show-shelf.component';
-import { AddEditShelfComponent } from './shelf/add-edit-shelf/add-edit-shelf.component';
+// import { ShelfComponent } from './shelf/shelf.component';
+// import { ShowShelfComponent } from './shelf/show-shelf/show-shelf.component';
+// import { AddEditShelfComponent } from './shelf/add-edit-shelf/add-edit-shelf.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -51,6 +51,7 @@ import { ShowSupplierComponent } from './supplier/show-supplier/show-supplier.co
 import { AddEditSupplierComponent } from './supplier/add-edit-supplier/add-edit-supplier.component';
 import { DatePipe } from '@angular/common';
 import { SharedService } from './shared.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +59,9 @@ import { SharedService } from './shared.service';
     NavMenubarComponent,
     SidebarSkinsComponent,
     ToolbarComponent,
-    ShelfComponent,
-    ShowShelfComponent,
-    AddEditShelfComponent,
+    // ShelfComponent,
+    // ShowShelfComponent,
+    // AddEditShelfComponent,
     ProductComponent,
     ShowProductComponent,
     AddEditProductComponent,
@@ -72,7 +73,8 @@ import { SharedService } from './shared.service';
     AddEditCustomerComponent,
     SupplierComponent,
     ShowSupplierComponent,
-    AddEditSupplierComponent
+    AddEditSupplierComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,8 @@ import { SharedService } from './shared.service';
   providers: [SharedService,DatePipe],
   bootstrap: [AppComponent],
   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
 })
 export class AppModule { }
