@@ -5,22 +5,24 @@ import { ShowShelfComponent } from '../show-shelf/show-shelf.component';
 import { AddEditShelfComponent } from '../add-edit-shelf/add-edit-shelf.component';
 
 
-const appRoutes: Routes =[
-  {
-    path: 'shelf', children: [
-      {path:'',component:ShelfComponent},
-      {path: 'showShelf',component:ShowShelfComponent},
-      {path: 'addEditShelf',component:AddEditShelfComponent}
-    ]
-  }
-]
+const appRoutes: Routes = [
+  { path: '', component: ShelfComponent,
+  children:[
+    { path: 'shelf', component: ShelfComponent },
+    { path: 'showShelf', component: ShowShelfComponent },
+    { path: 'addEditShelf',component:AddEditShelfComponent},
+    { path:'',redirectTo:'/shelf', pathMatch:'full'}
+  ]
+ }
+];
+
 
 @NgModule({
   declarations: [],
   imports: [
     RouterModule.forRoot(appRoutes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 
 })
 export class ShelfRoutingModule { }

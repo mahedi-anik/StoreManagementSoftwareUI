@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AddEditShelfComponent,
     ShowShelfComponent,
+    AddEditShelfComponent,
     ShelfComponent
   ],
   imports: [
