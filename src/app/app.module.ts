@@ -5,12 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavMenubarComponent } from './nav-menubar/nav-menubar.component';
+// import { NavMenubarComponent } from './nav-menubar/nav-menubar.component';
 import { SidebarSkinsComponent } from './sidebar-skins/sidebar-skins.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-// import { ShelfComponent } from './shelf/shelf.component';
-// import { ShowShelfComponent } from './shelf/show-shelf/show-shelf.component';
-// import { AddEditShelfComponent } from './shelf/add-edit-shelf/add-edit-shelf.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -56,12 +53,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     DashboardComponent,
-    NavMenubarComponent,
+    // NavMenubarComponent,
     SidebarSkinsComponent,
     ToolbarComponent,
-    // ShelfComponent,
-    // ShowShelfComponent,
-    // AddEditShelfComponent,
     ProductComponent,
     ShowProductComponent,
     AddEditProductComponent,

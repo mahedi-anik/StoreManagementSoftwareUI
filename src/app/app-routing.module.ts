@@ -5,16 +5,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-
   {path:'dashboard',component:DashboardComponent},
   {path:'',redirectTo:'/dashboard', pathMatch:'full'},
-  {path:'**',component:PageNotFoundComponent},
   {
     path:'shelf',
     loadChildren: () => 
     import('./shelf/shelf.module').then((m)=>m.ShelfModule),
   },
-  
+  {path:'**',component:PageNotFoundComponent},
 ];
 
 @NgModule({
