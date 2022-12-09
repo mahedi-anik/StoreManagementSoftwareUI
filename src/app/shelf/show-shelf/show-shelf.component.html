@@ -14,6 +14,7 @@
                       <div class="card border-0">
                         <div class="card-body">
                           <div class="card-title">Shelf List</div>
+                          <button type="button" mat-mini-fab color="accent" [routerLink]="['/dashboard']" >Home</button>
                           <hr class="bg-secondary border-2 border-top border-secondary">
                           <div class="d-flex flex-wrap">
                             <mat-form-field appearance="outline">
@@ -91,7 +92,7 @@
       <div class="modal-content">
           <div class="modal-header">
               <h1 class="modal-title" id="exampleModalLabel">{{ModelTitle}}</h1>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.reload()">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"><fa-icon [icon]="faCircleXmark"></fa-icon></span>
               </button>
           </div>

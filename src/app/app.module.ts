@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- import { NavMenubarComponent } from './nav-menubar/nav-menubar.component';
-import { SidebarSkinsComponent } from './sidebar-skins/sidebar-skins.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+//  import { NavMenubarComponent } from './nav-menubar/nav-menubar.component';
+// import { SidebarSkinsComponent } from './sidebar-skins/sidebar-skins.component';
+// import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -37,9 +37,6 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import { ProductComponent } from './product/product.component';
 import { ShowProductComponent } from './product/show-product/show-product.component';
 import { AddEditProductComponent } from './product/add-edit-product/add-edit-product.component';
-import { ProductCategoryComponent } from './product-category/product-category.component';
-import { ShowProductCategoryComponent } from './product-category/show-product-category/show-product-category.component';
-import { AddEditProductCategoryComponent } from './product-category/add-edit-product-category/add-edit-product-category.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ShowCustomerComponent } from './customer/show-customer/show-customer.component';
 import { AddEditCustomerComponent } from './customer/add-edit-customer/add-edit-customer.component';
@@ -49,19 +46,17 @@ import { AddEditSupplierComponent } from './supplier/add-edit-supplier/add-edit-
 import { DatePipe } from '@angular/common';
 import { SharedService } from './shared.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    NavMenubarComponent,
-    SidebarSkinsComponent,
-    ToolbarComponent,
+    // NavMenubarComponent,
+    // SidebarSkinsComponent,
+    // ToolbarComponent,
     ProductComponent,
     ShowProductComponent,
     AddEditProductComponent,
-    ProductCategoryComponent,
-    ShowProductCategoryComponent,
-    AddEditProductCategoryComponent,
     CustomerComponent,
     ShowCustomerComponent,
     AddEditCustomerComponent,

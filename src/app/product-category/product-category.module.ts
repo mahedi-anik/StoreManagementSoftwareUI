@@ -1,9 +1,11 @@
-import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShelfRoutingModule } from './shelf-routing.module';
-import { ShelfComponent } from './shelf.component';
-import { AddEditShelfComponent } from './add-edit-shelf/add-edit-shelf.component';
-import { ShowShelfComponent } from './show-shelf/show-shelf.component';
+import { NavMenubarComponent } from '../nav-menubar/nav-menubar.component'; 
+import { ProductCategoryRoutingModule } from './product-category-routing.module';
+import { ProductCategoryComponent } from './product-category.component';
+import { ShowProductCategoryComponent } from './show-product-category/show-product-category.component';
+import { AddEditProductCategoryComponent } from './add-edit-product-category/add-edit-product-category.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -18,20 +20,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NavMenubarComponent } from '../nav-menubar/nav-menubar.component'; 
-
-
 
 @NgModule({
   declarations: [
-    ShowShelfComponent,
-    AddEditShelfComponent,
-    ShelfComponent
+    ProductCategoryComponent,
+    ShowProductCategoryComponent,
+    AddEditProductCategoryComponent
   ],
   imports: [
     NavMenubarComponent,
     CommonModule,
-    ShelfRoutingModule,
+    ToolbarComponent,
+    ProductCategoryRoutingModule,
     FormsModule,
     MatTableModule,
     MatSortModule,
@@ -46,8 +46,7 @@ import { NavMenubarComponent } from '../nav-menubar/nav-menubar.component';
     MatListModule,
     MatPaginatorModule,
     MatInputModule
-
   ],
   schemas: [ NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class ShelfModule { }
+export class ProductCategoryModule { }
